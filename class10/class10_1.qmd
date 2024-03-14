@@ -1,0 +1,119 @@
+---
+title: "Class 10: Structural Bioinformatics"
+author: "Raquel Gonzalez (A16207442)"
+format: pdf
+editor: visual
+---
+
+# The PDB Database
+
+Here we examine the size and composition of the main database of biomolecular structures - the PDB.
+
+Get a CSV file from the PDB database and read it into R.
+
+```{r}
+pdbstats <- read.csv("pdb_stats.csv", row.names = 1)
+head(pdbstats)
+```
+
+> Q1: What percentage of structures in the PDB are solved by X-Ray and Electron Microscopy.
+
+My pdbstats data frame has numbers with commas in them. This may cause us problems. Let's see:
+
+```{r}
+pdbstats$X.ray
+```
+
+We need to remove the commas so the numbers are not returned as strings.
+
+```{r}
+x <- "22,200"
+as.numeric(gsub(",", "",x))
+```
+
+I can turn this into a function that I can use for every column in the table.
+
+```{r}
+commasum <- function(x) {
+  sum(as.numeric(gsub(",", "",x)))
+}
+
+commasum(pdbstats$X.ray)
+```
+
+Apply across all columns.
+
+```{r}
+totals <- apply(pdbstats, 2, commasum)
+```
+
+```{r}
+round(totals/totals["Total"] * 100, 2)
+```
+
+84.54% of structures are solved by X-ray and 8.72% are solved by EM. 
+
+> Q2: What proportion of structures in the PDB are protein?
+
+```{r}
+round(as.numeric(gsub(",","", pdbstats[1,7]))/totals["Total"]*100, 2)
+```
+
+ 86.65% of structures in the PDB are protein.    
+
+```{r}
+215684/249751891 * 100
+```
+
+
+# 2. Visualizing Protein Structure. 
+
+We will learn the basics of Mol* (mol-star) homepage:
+https://molstar.org/viewer/
+
+We will play with PDB code 1HSG
+
+![](1HSG.png)
+
+Show the Asp25 amino acids:
+
+![](1HSG_D_HOH)
+
+## Back to R and working with PDB structures
+
+Predict the dynamics (flexibility) of an important protein:
+
+```{r}
+library(bio3d)
+
+hiv <- read.pdb("1hsg")
+hiv
+```
+
+```{r}
+head(hiv$atom)
+```
+
+```{r}
+pdbseq(hiv)
+```
+
+Here we will do a Normal Mode Analysis (NMA) to predict functional motions of a kinase protein. 
+
+```{r}
+adk <- read.pdb("6s36")
+adk
+```
+```{r}
+modes <- nma(adk)
+plot(modes)
+```
+
+Make a "movie" called a trajectory of the predicted motions:
+
+```{r}
+mktrj(modes, file="adk_m7.pdb")
+```
+
+Then I can open this file in Mol* ...
+
