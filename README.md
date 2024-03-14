@@ -9,7 +9,7 @@ My W24 Classwork for [BIMM 143 at UC San Diego](https://bioboot.github.io/bimm14
 - Class 9 [Halloween Mini-Project](class09/halloween_mini_project.md)
 - Class 10 [Structural Bioinformatics Pt.1](class10/class10_1.md)
 - Class 11 [Structural Bioinformatics Pt.2](class11/class11.md)
-- Class 12 
+- Class 12 [Genome Informatics](class12/class12.md)
 - Class 13
 - Class 14
 - Class 16
