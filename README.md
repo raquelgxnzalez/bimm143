@@ -2,9 +2,9 @@
 My W24 Classwork for [BIMM 143 at UC San Diego](https://bioboot.github.io/bimm143_W24/).
 
 ## Contents
-- Class 5 [Data Visualization with ggplot2]()
+- Class 5 [Data Visualization with ggplot2](class05.md)
 - Class 6 [R Functions and Packages]()
-- Class 7 [Machine Learning](class07.pdf)
+- Class 7 [Machine Learning]()
 - Class 8
 - Class 9
 - Class 10
