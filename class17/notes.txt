@@ -1,0 +1,1 @@
+ ssh -i "bimm143_raquel.pem" ubuntu@ec2-35-93-104-119.us-west-2.compute.amazonaws.com
