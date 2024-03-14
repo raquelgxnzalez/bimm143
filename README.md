@@ -7,7 +7,7 @@ My W24 Classwork for [BIMM 143 at UC San Diego](https://bioboot.github.io/bimm14
 - Class 7 [Machine Learning](class07/class07.md)
 - Class 8 [Breast Cancer Mini-Project](class08/Class08_breast_cancer_project.md)
 - Class 9 [Halloween Mini-Project](class09/halloween_mini_project.md)
-- Class 10
+- Class 10 [Structural Bioinformatics](class10/class10_1.md)
 - Class 11
 - Class 12
 - Class 13
