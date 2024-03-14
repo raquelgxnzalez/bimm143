@@ -12,7 +12,6 @@ My W24 Classwork for [BIMM 143 at UC San Diego](https://bioboot.github.io/bimm14
 - Class 12
 - Class 13
 - Class 14
-- Class 15
 - Class 16
 - Class 17
 - Class 18
