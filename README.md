@@ -12,7 +12,7 @@ My W24 Classwork for [BIMM 143 at UC San Diego](https://bioboot.github.io/bimm14
 - Class 12 [Genome Informatics](class12/class12.md)
 - Class 13 [RNASeq Analysis with DESeq2](class13/class13.md)
 - Class 14 [RNASeq Mini-Project](class14/class14.md)
-- Class 16
+- Class 16 [AWS Instance](class16/class16.md)
 - Class 17
 - Class 18
 - Class 19
