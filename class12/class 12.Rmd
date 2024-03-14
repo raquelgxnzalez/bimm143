@@ -1,0 +1,67 @@
+---
+title: 'Class 12: Genome Informatics'
+author: 'Raquel Gonzalez (PID: A16207442)'
+date: "2024-02-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Section 1. Proportion og G/G in a population
+
+Downloaded a CSV file from Ensemble < https://useast.ensembl.org/Homo_sapiens/Variation/Sample?db=core;r=17:39830003-39921005;v=rs8067378;vdb=variation;vf=959672880#373531_tablePanel >
+
+Here we read this CSV file
+
+```{r}
+mxl <- read.csv("373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(mxl)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)/nrow(mxl) * 100
+```
+
+## Section 4: Population Scale Analysis
+One sample is obviously not enough to know what is happening in a population. You are interested in assessing genetic differences on a population scale. 
+
+So, you processed about ~230 samples and did the normalization on a genome level. Now, you want to find whether thre is any association of the 4 asthma-associated SNPs (rs8067378...) on ORMDL3 expression.
+
+How many samples do we have?
+
+```{r}
+expr <- read.table("expression_genotype_results.txt")
+head(expr)
+```
+
+```{r}
+nrow(expr)
+```
+
+```{r}
+table(expr$geno)
+```
+
+```{r}
+medians <- aggregate(exp ~ geno, data = expr, FUN = median)
+medians
+```
+
+The sample size for A/A is 108 individuals, the sample size for A/G is 233 individuals, and the sample size for G/G is 121 individals. The median expression levels for A/A is 31.25, for A/G is 25.06, and for G/G is 20.07. 
+
+Let's make a boxplot to communicate our results. 
+
+```{r}
+library(ggplot2)
+ggplot(expr) +
+  aes(geno, exp, fill=geno) +
+  geom_boxplot(notch=TRUE) 
+```
+The relative expression level from A/A suggests an increased expression of this gene, whereas the one from G/G suggests a decreased expression of this gene. 
+The SNP does impact the expression of ORMDL3.
