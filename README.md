@@ -15,5 +15,5 @@ My W24 Classwork for [BIMM 143 at UC San Diego](https://bioboot.github.io/bimm14
 - Class 16 [AWS Instance](class16/class16.md)
 - Class 17 [Downstream Analysis](class17/class17.md)
 - Class 18 [Pertussis Mini-Project](class18/class18.md)
-- Class 19
+- Class 19 [Cancer Mutation Mini-Project](class19/class19.md)
 
