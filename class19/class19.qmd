@@ -1,0 +1,38 @@
+---
+title: "Class 19: Cancer Mutation Mini-Project"
+author: "Raquel Gonzalez (A16207442)"
+format: html
+editor: visual
+---
+
+> Q2. [6pts] What are the tumor specific mutations in this particular case (e.g.A130V)?
+
+```{r}
+library(bio3d)
+sequence <- read.fasta("A16207442_mutant_seq.fa")
+sequence
+```
+
+Score residue conservation
+```{r}
+which(conserv(sequence) < 1.0)
+```
+
+```{r}
+sequence$ali[,658]
+```
+
+
+```{r}
+sequence$ali[,685]
+```
+
+```{r}
+sequence$ali[,707]
+```
+
+```{r}
+sequence$ali[,which(conserv(sequence) < 1.0)]
+```
+
+
