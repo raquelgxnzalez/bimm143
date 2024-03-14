@@ -1,0 +1,26 @@
+---
+title: "Class 16: AWS Instance"
+author: "Raquel Gonzalez (PID: A16207442)"
+format: pdf
+editor: visual
+---
+
+```{r}
+zebrafish <- read.delim("C:mm-second.x.zebrafish.tsv")
+
+colnames(zebrafish) <- c("qseqid", "sseqid", "pident", "length", "mismatch", "gapopen", "qstart", "qend", "sstart", "send", "evalue", "bitscore")
+```
+
+```{r}
+hist(zebrafish$bitscore, breaks = 30)
+```
+
+```{r}
+library(ggplot2)
+ggplot(zebrafish, aes(pident, bitscore)) +
+  geom_point(alpha=0.1)
+```
+
+```{r}
+ggplot(zebrafish, aes((zebrafish$pident * (zebrafish$qend - zebrafish$qstart)), bitscore)) + geom_point(alpha=0.1) + geom_smooth()
+```
